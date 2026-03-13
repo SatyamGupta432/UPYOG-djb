@@ -233,7 +233,7 @@ const InboxComposer = ({
 
   if (isEnabledWSCommonModules) {
     return (
-      <React.Fragment>
+      <div className="inbox-container">
         <div className="side-panel-item">
           <InboxLinks {...PropsForInboxLinks} />
           <FilterForm onSubmit={onFilterFormSubmit} handleSubmit={handleFilterFormSubmit} id="filter-form" onResetFilterForm={onResetFilterForm}>
@@ -271,12 +271,12 @@ const InboxComposer = ({
               </div>
             </div>
           )}</div>
-      </React.Fragment>
+      </div>
     );
   }
 
   return (
-    <div className="InboxComposerWrapper">
+    <div className="inbox-container">
       <InboxLinks {...PropsForInboxLinks} />
       <SearchForm onSubmit={onSearchFormSubmit} handleSubmit={handleSearchFormSubmit} id="search-form" className="rm-mb form-field-flex-one">
         <SearchFormFields registerRef={registerSearchFormField} searchFormState={searchFormState} {...{ controlSearchForm }} />

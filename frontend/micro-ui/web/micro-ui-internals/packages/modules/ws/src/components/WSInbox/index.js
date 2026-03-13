@@ -227,8 +227,9 @@ const WSInbox = ({ parentRoute }) => {
 
   const propsForMobileSortForm = { onMobileSortOrderData, sortFormDefaultValues: formState?.tableForm, onSortFormReset };
 
+
   return (
-    <React.Fragment>
+    <div className="app-container">
       <InboxComposer
         {...{
           isInboxLoading,
@@ -241,7 +242,7 @@ const WSInbox = ({ parentRoute }) => {
           formState,
         }}
       ></InboxComposer>
-    </React.Fragment>
+    </div>
   );
 };
 

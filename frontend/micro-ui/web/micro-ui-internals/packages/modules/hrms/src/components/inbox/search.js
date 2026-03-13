@@ -1,4 +1,4 @@
-import { ActionBar, CloseSvg, DatePicker, Label, LinkLabel, SubmitBar, TextInput } from "@djb25/digit-ui-react-components";
+import { ActionBar, CloseSvg, DatePicker, Label, LinkLabel, MobileNumber, SubmitBar, TextInput } from "@djb25/digit-ui-react-components";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -50,30 +50,35 @@ const SearchApplication = ({ onSearch, type, onClose, searchFields, searchParams
             <div className="formcomposer-section-grid">
               {searchFields
                 ?.filter((e) => true)
-                ?.map((input, index) => (
-                  <div key={input.name} className="input-fields">
-                    <span className={"mobile-input"}>
+                ?.map((input, index) =>
+                  input.name === "phone" ? (
+                    <span className={"mobile-input"} key={index}>
                       <Label>{input.label}</Label>
-                      {input.type !== "date" ? (
-                        <div className="field-container">
-                          {input?.componentInFront ? (
-                            <span className="citizen-card-input citizen-card-input--front" style={{ flex: "none" }}>
-                              {input?.componentInFront}
-                            </span>
-                          ) : null}
-                          <TextInput {...input} inputRef={register} watch={watch} shouldUpdate={true} />
-                        </div>
-                      ) : (
-                        <Controller
-                          render={(props) => <DatePicker date={props.value} onChange={props.onChange} />}
-                          name={input.name}
-                          control={control}
-                          defaultValue={null}
-                        />
-                      )}{" "}
+                      <MobileNumber {...input} inputRef={register} name={input.label} />
                     </span>
-                  </div>
-                ))}
+                  ) : (
+                    <div key={index} className="input-fields">
+                      <span className={"mobile-input"}>
+                        <Label>{input.label}</Label>
+                        {input.type !== "date" ? (
+                          <div className="field-container">
+                            {input?.componentInFront ? (
+                              <span className="employee-card-input employee-card-input--front phone-country-code">{input?.componentInFront}</span>
+                            ) : null}
+                            <TextInput {...input} inputRef={register} className="field desktop-w-full" watch={watch} shouldUpdate={true} />
+                          </div>
+                        ) : (
+                          <Controller
+                            render={(props) => <DatePicker date={props.value} onChange={props.onChange} />}
+                            name={input.name}
+                            control={control}
+                            defaultValue={null}
+                          />
+                        )}{" "}
+                      </span>
+                    </div>
+                  )
+                )}
             </div>
             <div className="inbox-action-container">
               {type === "desktop" && !mobileView && (

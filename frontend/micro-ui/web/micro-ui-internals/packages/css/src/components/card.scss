@@ -156,7 +156,7 @@
 }
 
 .submit-bar {
-  @apply h-10 text-center w-full outline-none;
+  @apply h-10 text-center outline-none;
   background: linear-gradient(135deg, #667eea, #764ba2);
   box-shadow: inset 0px -2px 0px theme(colors.text.primary);
   cursor: pointer;

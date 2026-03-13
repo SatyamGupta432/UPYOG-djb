@@ -150,6 +150,8 @@ const EditApplication = () => {
     return <Loader />;
   }
 
+  console.log(config.body)
+
   return (
     <React.Fragment>
       {/* <div style={{ marginLeft: "15px" }}>

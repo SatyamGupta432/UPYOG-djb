@@ -137,13 +137,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .inbox-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .inbox-container {
   gap: 16px;
 
   .filters-container {
     display: flex;
-  flex-direction: column;
-  gap: 16px;
+    flex-direction: column;
+    gap: 16px;
 
     .filter {
       .filter-card {
@@ -207,8 +214,6 @@
   }
 }
 
-
-
 .generic-button {
   height: 32px;
   border-radius: 9999999px;
@@ -227,11 +232,16 @@
   }
 }
 
+@media (max-width: 480px) {
+  .generic-button {
+    padding: 0 12px;
+  }
+}
+
 .clear-search,
 .clear-search .link-label {
   @apply border-focus text-focus;
   cursor: pointer;
-
 
   &:hover {
     color: #3b59df;
@@ -282,15 +292,22 @@
     padding: 8px !important;
     background: #fff;
     border-radius: 6px;
+
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+
     .header {
       display: flex;
       border: none;
       @apply justify-start;
       align-items: center;
+
       .logo {
         @apply bg-white;
         display: flex;
         align-items: center;
+
         svg {
           path {
             fill: theme(colors.primary.main);
@@ -321,14 +338,12 @@
   .inbox-container {
     @apply flex;
     height: inherit;
-    padding-bottom: 24px;
 
     .filters-container {
       width: 270px;
       overflow-y: scroll;
-      
-      .filter {
 
+      .filter {
         .filter-card {
           @apply p-md bg-white;
 

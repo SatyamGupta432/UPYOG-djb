@@ -20,7 +20,7 @@
   }
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
   .search-form-wns-inbox {
     grid-template-columns: 1fr;
   }
@@ -74,9 +74,9 @@
   }
 
   .search-form-wns-inbox {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 
     .clear-search-container {
       grid-column: 2/3;
@@ -127,11 +127,19 @@
   }
 }
 
-
-.side-panel-item{
-  width: 240px;
+.side-panel-item {
   display: flex;
   flex-direction: column;
   gap: 16px;
   overflow-y: scroll;
+
+  @media (min-width: 768px) {
+    width: 240px;
+  }
+
+  .inboxLinks {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
 }
